@@ -27,6 +27,17 @@ public class ApkInfo {
     public static final String APPLICATION_ICON_160 = "application-icon-160";
     public static final String APPLICATION_ICON_240 = "application-icon-240";
     public static final String APPLICATION_ICON_320 = "application-icon-320";
+
+    /**
+     * APK文件名
+     */
+    private String fileName;
+
+    /**
+     * APK文件最后更新时间，格式(yyyy-MM-dd HH:mm:ss)
+     */
+    private String lastModifiedTime;
+
     /**
      * apk内部版本号
      */
@@ -85,6 +96,22 @@ public class ApkInfo {
         this.applicationIcons = new HashMap<String, String>();
         this.impliedFeatures = new ArrayList<ImpliedFeature>();
         this.features = new ArrayList<String>();
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getLastModifiedTime() {
+        return lastModifiedTime;
+    }
+
+    public void setLastModifiedTime(String lastModifiedTime) {
+        this.lastModifiedTime = lastModifiedTime;
     }
 
     /**

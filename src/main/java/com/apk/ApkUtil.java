@@ -9,6 +9,8 @@ package com.apk;
  */
 
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 /**
@@ -45,6 +47,8 @@ public class ApkUtil {
      */
     private String mAaptPath = "/Users/ZhouXiang/Library/Android/sdk/build-tools/25.0.2/aapt";  //<p><span style="font-size:14px;"><span style="font-size:32px;"><span style="color:#FF0000;">// 特别注意：</span><u>这里需要一个appt.exe的可执行文件需要放在C：/</u></span></span></p><p><span style="font-size:14px;"><span style="font-size:32px;"><u>//   盘下，也可以自己指定目录位置。</u></span></span></p>
 
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
     public ApkUtil() {
         mBuilder = new ProcessBuilder();
         mBuilder.redirectErrorStream(true);
@@ -59,7 +63,7 @@ public class ApkUtil {
     public ApkInfo getApkInfo(String apkPath) throws Exception {
         Process process = mBuilder.command(mAaptPath, "d", "badging", apkPath)
                 .start();
-        InputStream is = null;
+        InputStream is;
         is = process.getInputStream();
         BufferedReader br = new BufferedReader(
                 new InputStreamReader(is, "utf8"));
@@ -71,6 +75,10 @@ public class ApkUtil {
             ApkInfo apkInfo = new ApkInfo();
             do {
                 setApkInfoProperty(apkInfo, tmp);
+
+                File file = new File(apkPath);
+                apkInfo.setFileName(file.getName());
+                apkInfo.setLastModifiedTime(sdf.format(new Date(file.lastModified())));
             } while ((tmp = br.readLine()) != null);
             return apkInfo;
         } catch (Exception e) {

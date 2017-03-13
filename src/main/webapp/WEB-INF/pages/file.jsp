@@ -7,9 +7,10 @@
     <title>Insert title here</title>
 </head>
 <body>
-<h2>OpenApi 调用演示</h2>
-<c:forEach var="file" items="${fileList}">
-    <%--用EL表达式调用list对象的属性循环输出对象的各个属性值--%>
-    <a href="/demosite/apk/${file}">${file}<a/><br/>
-</c:forEach>
+<c:forEach var="apk" items="${apkList}">
+VersionName：${apk.getVersionName()}<br/>
+VersionCode：${apk.getVersionCode()}<br/>
+UpdateTime：${apk.getLastModifiedTime()}<br/>
+<a href="/demosite/apk/${apk.getFileName()}">${apk.getFileName()}<a/><br/><br/><br/>
+    </c:forEach>
 </html>
