@@ -8,6 +8,7 @@
 </head>
 <body>
 <c:forEach var="apk" items="${apkList}">
+<img src="/demosite/icon/${apk.getPackageName()}.png"/><br/>
 VersionName：${apk.getVersionName()}<br/>
 VersionCode：${apk.getVersionCode()}<br/>
 UpdateTime：${apk.getLastModifiedTime()}<br/>
