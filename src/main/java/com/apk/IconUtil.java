@@ -1,4 +1,4 @@
-package cn.testApk;
+package com.apk;
 
 import java.io.*;
 import java.util.zip.ZipEntry;

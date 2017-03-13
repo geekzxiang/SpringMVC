@@ -1,4 +1,4 @@
-package cn.testApk;
+package com.apk;
 /*
  * @(#)ApkInfo.java		       version: 1.0
  * Date:2012-1-10

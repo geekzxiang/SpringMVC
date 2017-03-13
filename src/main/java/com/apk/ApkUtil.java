@@ -1,4 +1,4 @@
-package cn.testApk;
+package com.apk;
 /*
  * @(#)ApkUtil.java		       version: 0.2.1
  * Date:2012-1-9

@@ -18,7 +18,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.testApk;
+package com.apk;
 
 /**
  * @author Geek_Soledad (66704238@51uc.com)
